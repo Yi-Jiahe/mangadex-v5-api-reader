@@ -1,0 +1,20 @@
+{% extends "reader/layout.html" %}
+
+{% block body %}
+
+<a href="/manga/{{ manga_id }}/0"><p>{{ manga_title }}</p></a>
+
+<img src="{{ src }}" style="width:100%"/>
+
+{% if prev != None %}
+<form action="/chapter/{{ chapter_id }}/{{ prev }}">
+    <input type="submit" value="Previous Page" />
+</form>
+{% endif %}
+{% if next != None %}
+<form action="/chapter/{{ chapter_id }}/{{ next }}">
+    <input type="submit" value="Next Page" />
+</form>
+{% endif %}
+
+{% endblock %}

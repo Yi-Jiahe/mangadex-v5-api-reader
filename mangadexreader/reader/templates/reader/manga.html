@@ -1,0 +1,25 @@
+{% extends "reader/layout.html" %}
+
+{% block body %}
+
+<h1>{{ manga.title }}</h1>
+<p>{{ manga.description }}</p>
+
+<table>
+{% for chapter in chapters %}
+<li><a href="/chapter/{{ chapter.id }}/0">Volume {{ chapter.volume }}, Chapter {{ chapter.chapter }}: {{ chapter.title }}</a></li>
+{% endfor %}
+</table>
+
+{% if prev != None %}
+<form action="/manga/{{ manga_id }}/{{ prev }}">
+    <input type="submit" value="Previous Page" />
+</form>
+{% endif %}
+{% if next != None %}
+<form action="/manga/{{ manga_id }}/{{ next }}">
+    <input type="submit" value="Next Page" />
+</form>
+{% endif %}
+
+{% endblock %}

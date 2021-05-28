@@ -1,0 +1,15 @@
+{% extends "reader/layout.html" %}
+
+{% block body %}
+
+<table>
+{% for manga in manga_list %}
+    <li><a href="/manga/{{ manga.id }}/0">{{ manga.title }}</a></li>
+    <p>{% for tag in manga.tags %}
+        {{ tag }}
+        {% endfor %}
+    </p>
+{% endfor %}
+</table>
+
+{% endblock %}
